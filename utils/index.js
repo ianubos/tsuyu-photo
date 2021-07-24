@@ -3,5 +3,6 @@ export const sortByDate = (a, b) => {
 }
 
 export const jsUcfirst = (string) => {
+    if (!string || string.length === 0) return '';
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }

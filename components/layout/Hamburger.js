@@ -25,7 +25,7 @@ function Hamburger() {
                     </Link>
                 </li>
                 {categories.map((cat, index) => (
-                    <NavLink slug={`${cat.category}`} key={index} />
+                    <NavLink slug={`/gallery/${cat.category}`} name={cat.category} key={index} />
                 ))}
                 <NavLink slug='contact' />
                 </ul>
@@ -37,11 +37,11 @@ function Hamburger() {
 
 export default Hamburger
 
-const NavLink = ({ slug }) => (
+const NavLink = ({ slug, name }) => (
     <li className="pb-10 whitespace-nowrap">
-        <Link href={`/${slug}`}>
+        <Link href={`${slug}`}>
             <a className="text-white hover:no-underline hover:opacity-50">
-                {jsUcfirst(slug)}
+                {jsUcfirst(name)}
             </a>
         </Link>
     </li>

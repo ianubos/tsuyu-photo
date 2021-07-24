@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { categories } from '../data/sitedata'
+import { jsUcfirst } from '../utils'
 
 const ImageContainer = styled.div`
   width: 100%;
@@ -38,7 +39,7 @@ function MainContent() {
                               </ImageContainer>
                           </a>
                       </Link>
-                      <p className="text-lg w-full flex justify-center py-8">{cat.category}</p>
+                      <p className="text-lg w-full flex justify-center py-8">{jsUcfirst(cat.category)}</p>
                   </div>
                 )}
             </ul>

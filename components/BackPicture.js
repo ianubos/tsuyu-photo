@@ -33,7 +33,7 @@ function BackPicture() {
       />
       <div
         style={{ transform: "translate(-50%, 5rem)" }}
-        className="absolute top-10 sm:top-1/4 left-1/2"
+        className="absolute top-36 sm:top-1/4 left-1/2"
       >
         <div
           className="text-3xl sm:text-5xl text-white"
