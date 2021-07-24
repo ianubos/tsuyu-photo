@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^2.2.3",
     "@react-three/drei": "^6.2.0",
     "@react-three/fiber": "^7.0.1",
     "github-markdown-css": "^4.0.0",
@@ -17,6 +18,7 @@
     "react": "17.0.2",
     "react-cool-dimensions": "^2.0.7",
     "react-dom": "17.0.2",
+    "react-notifications": "^1.7.2",
     "react-scripts": "^2.0.0",
     "simple-react-lightbox": "^3.6.6",
     "styled-components": "^5.3.0",

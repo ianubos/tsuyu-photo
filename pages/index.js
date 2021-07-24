@@ -1,16 +1,16 @@
 import React from "react";
 import Layout from '../components/layout/Layout'
 import BackPicture from "../components/BackPicture";
-import MainContent from "../components/MainContent";
+import TopCategory from "../components/TopCategory";
 
-const Spacer = () => <span className="h-screen block"></span>;
+const Spacer = () => <span className="h-96 sm:h-screen block"></span>;
 
 function Index() {
     return (
         <Layout>
           <BackPicture />
           <Spacer />
-          <MainContent />
+          <TopCategory />
         </Layout>
     );
 }

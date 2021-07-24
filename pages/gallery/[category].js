@@ -5,11 +5,13 @@ import matter from 'gray-matter'
 import Layout from '../../components/layout/Layout'
 import { categories } from '../../data/sitedata'
 import Gallery from '../../components/Gallery'
+import { sortByDate } from '../../utils'
 
-export default function PostPage({ posts }) {
+export default function PostPage({ posts, category }) {
+  console.log('category', category)
   return (
     <Layout>
-      <Gallery posts />
+      <Gallery posts={posts} category={category}/>
     </Layout>
   )
 }
@@ -17,7 +19,7 @@ export default function PostPage({ posts }) {
 export async function getStaticPaths() {
   const paths = categories.map((cat) => ({
     params: {
-      slug: cat.category,
+      category: cat.category,
     },
   }))
   return {
@@ -41,7 +43,8 @@ export async function getStaticProps({ params: { category } }) {
 
   return {
     props: {
-      posts
+      posts: posts.sort(sortByDate),
+      category
     },
   }
 }

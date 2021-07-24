@@ -14,7 +14,7 @@ function BackPicture() {
     };
   }, []);
   return (
-    <div className="fixed w-full h-full" style={{ zIndex: -10 }}>
+    <div className="fixed w-full h-full bg-black" style={{ zIndex: -10 }}>
       <img
         className="w-full transition duration-1000 ease-in"
         style={{
