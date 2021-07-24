@@ -1,55 +1,68 @@
-# サイトの構成・日程
-### Tech Stacks
-| FrontEnd | BackEnd | Server | VPS | DNS |
-|:---------:|:------:|:-------:|:-------:|:-------:|
-| Next.js | Node.js | Nginx | さくらVPS or AWS EC2 | Cloudflare |
-| React SSG | コンタクトや支払いなど | ウェブサーバー | Hosting | DNS server |
+# TsuyuPhotoGallery概要
 
-### Samples
-参考サイト  
-Spectroplastという会社のサイトを参考に作ります。
-- [Spectroplast](https://spectroplast.com/)
+### データの圧縮
+https://tinyjpg.com/  
+ここでの圧縮を忘れずに。
 
-### Workflow
-1. 参考サイトと同様のサイトを作成(写真・文章は後で差し替え)
-2. 写真・文章素材に合わせてcssで微調整
+### 写真の更新方法
+更新の際に触るフォルダは以下のふたつ。
+- gallery -> 写真の詳細を記述
+- public -> 写真データ
+1. まずpublicディレクトリに写真を格納する。このディレクトリ内でのフォルダ名、ファイル名は任意に設定可能。
+2. galleryディレクトに写真の詳細をmarkdownファイルで記述する。
+#### 例）sunset1.jpgをsunsetカテゴリーの写真として更新
+1. public/sunset/sunset1.jpgに写真データを格納
+2. gallery/sunset-1.mdを以下のように記述
+```md
+---
+title: 'テスト写真3'
+category: 'sunset'
+date: '2021-04-25'
+spot: '東京'
+photo: '/sunset/sunset1.jpg'
+---
+```
+categoryをsunset(小文字)  
+dateは任意設定で最新の日時の写真から順番に表示される  
+photoはpublicディレクトリ内での相対パス  
+title, spotは使用していないが今後の改修を考えてつけてある
 
-### CSSについて
-[Tailwindcss](https://tailwindcss.com/docs)というcss frameworkを使います。tailwindはcssファイルを用いずにhtmlのタグにクラスをつけることでcssを付与するため、ファイル＆フォルダ構造が簡潔になり、かつコードが読みやすくなります。  
-もちろん、通常のcssのままでも使えます。ただしその場合はクラス名の混同を避けるために、module化して使います。  
-[module化の例](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
+### サイトデータの変更
+変更できるのは以下のふたつ。
+- サイトのタイトル
+- カテゴリー
+data/sitedata.js  
+```js
+export const categories = [
+    {
+        category: 'sunset',
+        photo: '/category/sunset.jpg'
+    },
+    {
+        category: 'culture',
+        photo: '/category/culture.jpg'
+    },
+    {
+        category: 'mountain',
+        photo: '/category/mountain.jpg'
+    },
+    {
+        category: 'nature',
+        photo: '/category/nature.jpg'
+    }
+]
 
-### 役割分担について
-obunai: フロントエンド・構成管理  
-oue: フロントエンド・３Dモデル
+export const sitename = 'TsuyuPhotoGallery'
 
-### Branchの管理について
-develop -> デフォルトのブランチ。基本的には別のブランチを作って、developブランチにmergeする形で作業を進めます。  
-production -> 完成品のブランチ。developブランチが完成した後、productionブランチにmergeして、サーバーに反映します。  
-その他のブランチ -> 基本的にはdevelopから派生させてブランチを作って作業します。  
+export const sitedescription = 'フォトギャラリー'
 
-### 日程・ミーティング
-各ミーティングで次回までの詳細な進行を決定します。
-| 第一回   | 第二回 | 第三回 | 第四回 | 第五回 |
-|:---------:|:------:|:-------:|:-------:|:-------:|
-|   6/8   |  6/14  |  6/21  |  6/28  |  7/5  |
-| 概要、役割分担、初期設定 | ビジュアル作成 | ビジュアル作成 | アニメーション追加 | 修正 |
-
-### サイト構成
-- トップページ -> トップページ完成後に公開。その他のページは順次追加。
-- サービス
-- ニュース
-- 会社概要
-- コンタクト
-
-### npm package
-- [Scrollreveal](https://scrollrevealjs.org/) -> Next.jsで使えるか確認必須。使えない場合は他のライブラリを探します。
-- [react-cool-dimensions](https://dev.to/wellyshen/introducing-react-cool-dimensions-react-hook-to-measure-an-element-s-size-and-handle-responsive-components-3m01) -> windowやオブジェクトのサイズ取得に使用。breakpointでの画像遷移などに便利。 
-
-### その他導入検討
-- reCAPTURE
-- Stripe -> この場合Node.jsバックが必要
-
+export const topphoto = '/gallery/fujisanto.jpg'
+```
+categoryを同形式で増減可能。category名を変えたらgallery/にある写真の詳細のカテゴリーも忘れずに変更のこと。  
+photoはpublicディレクトリ内での相対パス。  
+sitenameがサイトの名前。 
+sitedescriptionはサイトの説明（google検索でサイト名の下に記述される） 
+topphotoはトップの背景写真
 
 
 # Nextjs README.md

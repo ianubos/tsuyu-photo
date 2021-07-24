@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { sitename } from '../data/sitedata'
+import { sitename, topphoto } from '../data/sitedata'
 
 function BackPicture() {
   const [scrollY, setScrollY] = useState(0);
@@ -28,7 +28,7 @@ function BackPicture() {
               : "blur(0px) brightness(1)",
         }}
         alt="tsuyu fuji mountain"
-        src='/gallery/fujisanto.jpg'
+        src={topphoto}
         loading="eager"
       />
       <div

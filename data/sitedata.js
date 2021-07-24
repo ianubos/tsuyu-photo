@@ -5,16 +5,20 @@ export const categories = [
     },
     {
         category: 'culture',
-        photo: '/category/sunset.jpg'
+        photo: '/category/culture.jpg'
     },
     {
         category: 'mountain',
-        photo: '/category/sunset.jpg'
+        photo: '/category/mountain.jpg'
     },
     {
         category: 'nature',
-        photo: '/category/sunset.jpg'
+        photo: '/category/nature.jpg'
     }
 ]
 
 export const sitename = 'TsuyuPhotoGallery'
+
+export const sitedescription = 'フォトギャラリー'
+
+export const topphoto = '/gallery/fujisanto.jpg'

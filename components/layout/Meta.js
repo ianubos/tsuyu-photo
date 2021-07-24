@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { sitename, sitedescription } from '../../data/sitedata'
 
 function Meta({title, keywords, description}) {
     return (
@@ -13,9 +14,9 @@ function Meta({title, keywords, description}) {
 }
 
 Meta.defaultProps = {
-    title: 'TsuyuPhotoGallery',
+    title: sitename,
     keywords: 'Tsuyu, Photo, Gallery, travel, トラベル, 旅行, 写真',
-    description: 'フォトギャラリー'
+    description: sitedescription
 }
 
 export default Meta
