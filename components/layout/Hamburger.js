@@ -17,7 +17,7 @@ function Hamburger() {
             <div className={`transform transition duration-300 fixed block md:hidden  bg-opacity-100 text-xl h-screen w-full z-40 top-0 right-0 ${isOpen ? 'visible bg-black' : 'invisible bg-transparent'}`}>
                 <div className="w-full sm:w-11/12 sm:mx-auto">
                 <ul className="mt-40 mx-auto text-center">
-                <li className="pb-10 whitespace-nowrap">
+                <li className="pb-10 whitespace-nowrap" onClick={() => setIsOpen(false)}>
                     <Link href='/'>
                         <a className="text-white hover:no-underline hover:opacity-50">
                             Home
@@ -25,9 +25,13 @@ function Hamburger() {
                     </Link>
                 </li>
                 {categories.map((cat, index) => (
-                    <NavLink slug={`/gallery/${cat.category}`} name={cat.category} key={index} />
+                    <div onClick={() => setIsOpen(false)}>
+                        <NavLink slug={`/gallery/${cat.category}`} name={cat.category} key={index}/>
+                    </div>
                 ))}
-                <NavLink slug='contact' />
+                <div onClick={() => setIsOpen(false)}>
+                    <NavLink slug='/contact' name='contact' />
+                </div>
                 </ul>
                 </div>
             </div>

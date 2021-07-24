@@ -26,8 +26,8 @@ function MainContent() {
         <div className="w-full h-full font-oswaldRegular" style={{ minHeight: "500px" }}>
             {/* <h2 className="text-gray-400 font-bold text-2xl font-oswaldRegular p-4 mx-4">Category</h2> */}
             <ul className="w-full flex flex-wrap px-4">
-                {categories && categories.map((cat) => 
-                  <div className='flex flex-col w-full sm:w-1/2 text-gray-400 hover:text-gray-200 transition px-4'>
+                {categories && categories.map((cat, index) => 
+                  <div className='flex flex-col w-full sm:w-1/2 text-gray-400 hover:text-gray-200 transition px-4' key={index}>
                       <Link href={`/gallery/${cat.category}`}>
                           <a className=" transition">
                               <ImageContainer>

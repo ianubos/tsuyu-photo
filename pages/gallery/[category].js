@@ -8,7 +8,6 @@ import Gallery from '../../components/Gallery'
 import { sortByDate } from '../../utils'
 
 export default function PostPage({ posts, category }) {
-  console.log('category', category)
   return (
     <Layout>
       <Gallery posts={posts} category={category}/>

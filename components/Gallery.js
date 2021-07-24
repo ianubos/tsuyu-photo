@@ -41,7 +41,6 @@ const Container = styled.div`
 `
 
 function Gallery({posts, category}) {
-  console.log(posts)
   return (
       <main className='bg-darkest w-full h-full min-h-screen pb-0-10 flex flex-col mx-auto'>
           {category && (
@@ -49,8 +48,8 @@ function Gallery({posts, category}) {
           )}
           <SRLWrapper>
               <Container>
-                  {posts.map((d) => (
-                      <ImageContainer>
+                  {posts.map((d, index) => (
+                      <ImageContainer key={index}>
                           <Image className={'post-image'} src={d.photo} layout="fill" />
                       </ImageContainer>
                   ))}
